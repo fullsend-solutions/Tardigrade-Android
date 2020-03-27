@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/main_fragment">
+
+    <fragment
+        android:id="@+id/main_fragment"
+        android:name="io.fullsend.tardigrade.fragment.MainFragment"
+        android:label="UI Components"
+        tools:layout="@layout/fragment_main">
+
+        <action
+            android:id="@+id/action_main_fragment_to_bucketsFragment"
+            app:destination="@id/bucketsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/bucketsFragment"
+        android:name="io.fullsend.tardigrade.fragment.BucketsFragment"
+        android:label="fragment_buckets"
+        tools:layout="@layout/fragment_buckets">
+        <argument
+            android:name="satelliteAddress"
+            app:argType="string" />
+        <argument
+            android:name="apiKey"
+            app:argType="string" />
+        <argument
+            android:name="passphrase"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_bucketsFragment_to_objectsFragment"
+            app:destination="@id/objectsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/objectsFragment"
+        android:name="io.fullsend.tardigrade.fragment.ObjectsFragment"
+        android:label="ObjectsFragment"
+        tools:layout="@layout/fragment_objects">
+
+        <argument
+            android:name="satelliteAddress"
+            app:argType="string" />
+        <argument
+            android:name="apiKey"
+            app:argType="string" />
+        <argument
+            android:name="passphrase"
+            app:argType="string" />
+
+        <argument
+            android:name="bucketName"
+            app:argType="string" />
+
+    </fragment>
+
+</navigation>
